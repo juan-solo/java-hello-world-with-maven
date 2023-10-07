@@ -7,14 +7,6 @@ pipeline{
     }
 
     stages{
-        stage('Initialize'){
-            steps{
-                def dockerHome = '/Applications/Docker.app/Contents/Resources'
-                //def mavenHome  = tool 'MyMaven'
-                //env.PATH = "${dockerHome}/bin:${mavenHome}/bin:${env.PATH}"
-                env.PATH = "${dockerHome}/bin:${env.PATH}"
-            }            
-        }
         stage('checkout'){
             steps{
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'github access', url: 'https://github.com/juan-solo/demo-java.git']]])
