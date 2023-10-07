@@ -8,10 +8,12 @@ pipeline{
 
     stages{
         stage('Initialize'){
-            def dockerHome = '/Applications/Docker.app/Contents/Resources'
-            //def mavenHome  = tool 'MyMaven'
-            //env.PATH = "${dockerHome}/bin:${mavenHome}/bin:${env.PATH}"
-            env.PATH = "${dockerHome}/bin:${env.PATH}"
+            steps{
+                def dockerHome = '/Applications/Docker.app/Contents/Resources'
+                //def mavenHome  = tool 'MyMaven'
+                //env.PATH = "${dockerHome}/bin:${mavenHome}/bin:${env.PATH}"
+                env.PATH = "${dockerHome}/bin:${env.PATH}"
+            }            
         }
         stage('checkout'){
             steps{
